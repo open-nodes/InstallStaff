@@ -21,12 +21,12 @@ chsh -s /bin/zsh
 # download bitcoind-v0.9.2.1 source
 cd ~/
 mkdir -p source
-wget "https://github.com/bitcoin/bitcoin/archive/v0.9.2.1.tar.gz" -O v0.9.2.1.tar.gz
+wget --no-check-certificate "https://github.com/bitcoin/bitcoin/archive/v0.9.2.1.tar.gz" -O v0.9.2.1.tar.gz
 tar zxf v0.9.2.1.tar.gz
 cd bitcoin-0.9.2.1
 
 # apply open-nodes patch
-wget https://gist.githubusercontent.com/bitkevin/3386d413393445ea9f33/raw/e94cb7e496d9bf5bd25b1f30c9dc213903a4a989/open-nodes.org_hub-v0.9.2.1.patch -O open-nodes.org_hub-v0.9.2.1.patch
+wget --no-check-certificate https://raw.githubusercontent.com/open-nodes/InstallStaff/master/scripts/v0.9.2.1/open-nodes.org_hub-v0.9.2.1.patch -O open-nodes.org_hub-v0.9.2.1.patch
 patch -p1 < open-nodes.org_hub-v0.9.2.1.patch
 
 # build bitcoind
@@ -47,6 +47,7 @@ cd ~/
 #
 mkdir -p ~/.bitcoin
 echo 'rpcuser=opennodesorg
+# !!! 记得修改rpcpassword !!!
 rpcpassword=qtD4dspeYL7Zr7nkbMBjyrGoLAUrLt
 rpcthreads=32
 
