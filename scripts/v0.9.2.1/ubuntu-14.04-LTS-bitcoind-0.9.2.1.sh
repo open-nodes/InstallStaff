@@ -53,7 +53,7 @@ rpcthreads=32
 
 # datadir需要即安装目录，安装到非默认目录请记得修改
 datadir=/root/.bitcoin
-txindex=true
+txindex=1
 
 # 允许下载块数量限制，2016大约14天，即仅允许下载14天内的块数据
 # 根据带宽大小可以适度放大
