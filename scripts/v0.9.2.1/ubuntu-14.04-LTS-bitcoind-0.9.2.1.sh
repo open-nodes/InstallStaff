@@ -46,9 +46,8 @@ cd ~/
 # bitcoind运行目录，默认： ~/.bitcoin，即 /root/.bitcoin
 #
 mkdir -p ~/.bitcoin
-echo 'rpcuser=opennodesorg
-# !!! 记得修改rpcpassword !!!
-rpcpassword=qtD4dspeYL7Zr7nkbMBjyrGoLAUrLt
+echo "rpcuser=opennodesorg
+rpcpassword=`cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-32} | head -n 1`
 rpcthreads=32
 
 # datadir需要即安装目录，安装到非默认目录请记得修改
@@ -57,11 +56,11 @@ txindex=1
 
 # 允许下载块数量限制，2016大约14天，即仅允许下载14天内的块数据
 # 根据带宽大小可以适度放大
-limitdownloadblocks=2016
+#limitdownloadblocks=2016
 
 maxconnections=2048
 outboundconnections=1024
-' > ~/.bitcoin/bitcoin.conf
+" > ~/.bitcoin/bitcoin.conf
 
 # 配置supervise模式
 mkdir ~/supervise_bitcoind
