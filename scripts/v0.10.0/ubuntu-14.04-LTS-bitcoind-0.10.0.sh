@@ -34,7 +34,7 @@ make -j4
 # install bitcoind
 strip src/bitcoind
 cp src/bitcoind /usr/bin/bitcoind-0.10.0
-cp src/bitcoin-cli /usr/bin/bitcoind-cli
+cp src/bitcoin-cli /usr/bin/bitcoin-cli
 chmod 755 /usr/bin/bitcoind-0.10.0
 cd /usr/bin
 ln -s ./bitcoind-0.10.0 bitcoind
